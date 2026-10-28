@@ -25,7 +25,7 @@
       font-family: 'Quicksand', sans-serif;
       /* Vibrant Royal & Ocean Sapphire Blue Gradient */
       background: linear-gradient(180deg, #1d4ed8 0%, #2563eb 20%, #0284c7 48%, #0369a1 78%, #1e40af 100%);
-      color: #fef9e7; /* Soft champagne ivory text */
+      color: #fef9e7; /* Warm Champagne Silk instead of stark white */
       overflow-x: hidden;
       touch-action: manipulation;
     }
@@ -34,44 +34,67 @@
       font-family: 'Fredoka', cursive;
     }
 
-    /* Metallic 24K Gold Foil Gradient */
-    .gold-text-metallic {
-      background: linear-gradient(135deg, #fffbeb 0%, #fde047 35%, #eab308 65%, #ca8a04 100%);
+    /* Royal 24K Liquid Gold Metallic Text Gradients */
+    .gold-foil-text {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef08a 20%, #f59e0b 50%, #d97706 75%, #92400e 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 2px 8px rgba(251, 191, 36, 0.45));
+      filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.45));
     }
 
-    /* Festive Sunbeam & Shimmer Radiance */
+    .gold-text-metallic {
+      background: linear-gradient(135deg, #fffbeb 0%, #fde68a 25%, #f59e0b 50%, #d97706 80%, #b45309 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Opulent 24K Gold Metallic Backgrounds & Borders */
+    .gold-metallic-bg {
+      background: linear-gradient(135deg, #fffbeb 0%, #fde68a 25%, #f59e0b 52%, #d97706 78%, #b45309 100%);
+    }
+
+    .gold-metallic-border {
+      border-color: #f59e0b;
+      box-shadow: 0 0 18px rgba(245, 158, 11, 0.45);
+    }
+
+    .champagne-glass-card {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(253, 230, 138, 0.4);
+      box-shadow: 0 8px 30px rgba(15, 23, 42, 0.25);
+    }
+
+    /* Festive Sunbeam & Gold Ambient Radiance */
     .vibrant-radiance {
-      background: radial-gradient(circle at 50% 15%, rgba(254, 240, 138, 0.35) 0%, rgba(56, 189, 248, 0.25) 45%, transparent 75%);
+      background: radial-gradient(circle at 50% 15%, rgba(253, 230, 138, 0.3) 0%, rgba(56, 189, 248, 0.22) 45%, transparent 75%);
     }
 
     @keyframes floatSlow {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(1.5deg); }
+      50% { transform: translateY(-8px) rotate(1.2deg); }
     }
     @keyframes floatRev {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(10px) rotate(-1.5deg); }
+      50% { transform: translateY(8px) rotate(-1.2deg); }
     }
     @keyframes spinDisc {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
     @keyframes pulseGlow {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 25px rgba(251, 191, 36, 0.45); }
-      50% { transform: scale(1.04); box-shadow: 0 0 40px rgba(251, 191, 36, 0.85); }
+      0%, 100% { transform: scale(1); box-shadow: 0 0 24px rgba(245, 158, 11, 0.45); }
+      50% { transform: scale(1.03); box-shadow: 0 0 40px rgba(254, 240, 138, 0.85); }
     }
     @keyframes flameFlicker {
       0%, 100% { transform: scale(1) rotate(-1deg); filter: drop-shadow(0 0 10px #f59e0b); }
       25% { transform: scale(1.08, 0.95) rotate(1.5deg); filter: drop-shadow(0 0 16px #fbbf24); }
-      50% { transform: scale(0.96, 1.06) rotate(-2deg); filter: drop-shadow(0 0 12px #f97316); }
-      75% { transform: scale(1.05, 1.02) rotate(1deg); filter: drop-shadow(0 0 18px #fde047); }
+      50% { transform: scale(0.96, 1.06) rotate(-2deg); filter: drop-shadow(0 0 12px #ea580c); }
+      75% { transform: scale(1.05, 1.02) rotate(1deg); filter: drop-shadow(0 0 18px #fef08a); }
     }
     @keyframes diyaAura {
       0%, 100% { transform: scale(1); opacity: 0.55; }
-      50% { transform: scale(1.22); opacity: 0.95; }
+      50% { transform: scale(1.25); opacity: 0.95; }
     }
     @keyframes driftCloud {
       from { transform: translateX(-20vw); }
@@ -105,10 +128,10 @@
       animation-delay: -30s;
     }
 
-    /* Smooth Scroll Node Transitions */
+    /* Scroll reveal transitions */
     .reveal-node {
       opacity: 0;
-      transform: translateY(26px);
+      transform: translateY(24px);
       transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
@@ -118,24 +141,26 @@
     }
   </style>
 </head>
-<body class="relative min-h-screen selection:bg-amber-300 selection:text-blue-950">
+<body class="relative min-h-screen selection:bg-amber-400 selection:text-blue-950">
 
-  <!-- ================= CANVAS FOR LOTUS PETALS & STARS SHOWER ================= -->
+  <!-- ================= CANVAS FOR LOTUS PETALS & GOLD STARS ================= -->
   <canvas id="lotusCanvas" class="fixed inset-0 pointer-events-none z-50 w-full h-full"></canvas>
 
   <!-- ================= AUDIO SOURCES ================= -->
+  <!-- 1. Attached Indian Classical Track -->
   <audio 
     id="attachedBgMusic" 
-    src="birthday-music.mp3" 
+    src="Happy Birthday – Indian Classical Version _ Classical Birthday Song _ Instrumental Raga Style.mp3" 
     preload="auto" 
     loop>
   </audio>
 
+  <!-- 2. YouTube Audio API Container Fallback -->
   <div id="ytPlayerContainer" class="hidden pointer-events-none w-0 h-0 overflow-hidden">
     <div id="ytPlayer"></div>
   </div>
 
-  <!-- Festive Sunbeam Glow Effect -->
+  <!-- Sunbeam & Radiant Atmosphere -->
   <div class="fixed inset-0 vibrant-radiance pointer-events-none z-0"></div>
 
   <!-- Drifting Decorative Whimsical Elements -->
@@ -152,28 +177,40 @@
   <div id="coverOverlay" class="fixed inset-0 z-40 flex items-center justify-center bg-gradient-to-br from-[#1d4ed8]/95 via-[#2563eb]/95 to-[#0284c7]/95 backdrop-blur-md cursor-pointer transition-all duration-700 p-4 select-none">
     <div class="relative max-w-sm w-full text-center pointer-events-none space-y-4">
       
-      <!-- Luminous Center Emblem (Using logo.png) -->
-      <div class="relative w-36 h-36 mx-auto flex items-center justify-center">
-        <div class="absolute inset-0 rounded-full border-2 border-amber-300/50 animate-ping" style="animation-duration: 3s;"></div>
-        <div class="w-full h-full rounded-full bg-gradient-to-tr from-[#1e40af] via-[#2563eb] to-[#38bdf8] border-4 border-amber-300 shadow-[0_0_40px_rgba(251,191,36,0.6)] flex items-center justify-center relative overflow-hidden">
-          <img src="logo.png" alt="Vidyuth Krishna Logo" class="w-full h-full object-cover rounded-full">
+      <!-- Custom Circular Logo Emblem (invitation logo 3.png) with Glowing Gold Halo -->
+      <div class="relative w-44 h-44 sm:w-48 sm:h-48 mx-auto flex items-center justify-center">
+        <div class="absolute inset-0 rounded-full border-2 border-amber-300/70 animate-ping" style="animation-duration: 3.2s;"></div>
+        <div class="absolute -inset-1 rounded-full border-2 border-amber-400 pulse-glow"></div>
+        
+        <div class="w-full h-full rounded-full overflow-hidden border-4 border-amber-300 shadow-[0_0_40px_rgba(245,158,11,0.65)] bg-sky-950/40 relative flex items-center justify-center">
+          <img 
+            src="invitation logo 3.png" 
+            alt="Vidyuth Krishna 1st Birthday Emblem" 
+            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+            onerror="this.onerror=null; this.src='invitation logo 3_2.png';"
+          />
+        </div>
+
+        <!-- Decorative Metallic Gold Flute Accent -->
+        <div class="absolute -bottom-2 -right-1 gold-metallic-bg text-blue-950 p-2 rounded-full border-2 border-amber-100 shadow-xl text-lg animate-bounce" style="animation-duration: 2.2s;">
+          🪈
         </div>
       </div>
 
       <div class="space-y-1 px-4">
-        <p class="text-xs font-festive tracking-widest text-amber-300 uppercase font-bold drop-shadow">
+        <p class="text-xs font-festive tracking-widest uppercase font-bold drop-shadow gold-text-metallic">
           ✦ You're Cordially Invited ✦
         </p>
-        <h2 class="text-4xl sm:text-5xl font-festive font-extrabold gold-text-metallic leading-tight drop-shadow-lg">
+        <h2 class="text-4xl sm:text-5xl font-festive font-extrabold gold-foil-text leading-tight drop-shadow-lg">
           Vidyuth Krishna
         </h2>
-        <p class="text-amber-200 font-festive text-lg font-semibold">
-          is celebrating his <span class="text-amber-400 font-extrabold text-2xl drop-shadow">1st Birthday</span>!
+        <p class="font-festive text-lg font-semibold text-[#fef9e7]">
+          is celebrating his <span class="font-extrabold text-2xl drop-shadow gold-text-metallic">1st Birthday</span>!
         </p>
       </div>
 
       <div class="pt-2">
-        <div class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 border border-amber-100 text-blue-950 text-xs sm:text-sm font-festive font-extrabold shadow-2xl pulse-glow">
+        <div class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full gold-metallic-bg border border-amber-100 text-blue-950 text-xs sm:text-sm font-festive font-extrabold shadow-2xl pulse-glow">
           <span>✨ Touch anywhere to open & celebrate ✨</span>
         </div>
       </div>
@@ -183,13 +220,13 @@
 
   <!-- ================= FLOATING MUSIC CONTROLLER ================= -->
   <div class="fixed top-4 right-4 z-40">
-    <button id="musicToggleBtn" aria-label="Toggle Classical Music" class="bg-[#1e40af]/85 hover:bg-[#1d4ed8] text-amber-300 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-lg border-2 border-amber-400/60 font-festive flex items-center gap-2 hover:scale-105 active:scale-95 transition cursor-pointer">
-      <div id="discGraphic" class="w-6 h-6 rounded-full bg-amber-400 text-blue-950 flex items-center justify-center text-xs shadow font-bold">
+    <button id="musicToggleBtn" aria-label="Toggle Classical Music" class="bg-[#1e40af]/85 hover:bg-[#1d4ed8] backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-lg border-2 border-amber-400/80 font-festive flex items-center gap-2 hover:scale-105 active:scale-95 transition cursor-pointer">
+      <div id="discGraphic" class="w-6 h-6 rounded-full gold-metallic-bg text-blue-950 flex items-center justify-center text-xs shadow font-bold">
         🪈
       </div>
       <div class="text-left hidden sm:block">
-        <span id="musicStatusText" class="block text-xs font-bold leading-tight text-white">Play Music</span>
-        <span class="text-[9px] text-amber-300 block leading-none">Classical Raga</span>
+        <span id="musicStatusText" class="block text-xs font-bold leading-tight text-[#fef9e7]">Play Music</span>
+        <span class="text-[9px] gold-text-metallic block leading-none font-bold">Classical Raga</span>
       </div>
     </button>
   </div>
@@ -200,44 +237,49 @@
     <!-- HERO HEADER SECTION -->
     <section class="reveal-node text-center space-y-4">
       
-      <!-- Festive Badge -->
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-amber-300/60 text-amber-200 text-xs sm:text-sm font-festive font-bold shadow-md">
+      <!-- Festive Badge in Champagne Glass & Gold -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full champagne-glass-card text-xs sm:text-sm font-festive font-bold shadow-md">
         <span>🪶</span>
-        <span>1ST BIRTHDAY CELEBRATION</span>
+        <span class="gold-text-metallic tracking-wider font-extrabold">1ST BIRTHDAY CELEBRATION</span>
         <span>🪈</span>
       </div>
 
-      <!-- Child Name & Age -->
+      <!-- Child Name & Age with Liquid 24K Gold Foil -->
       <div>
-        <h1 class="text-4xl sm:text-6xl font-festive font-extrabold gold-text-metallic tracking-wide leading-tight">
+        <h1 class="text-4xl sm:text-6xl font-festive font-extrabold gold-foil-text tracking-wide drop-shadow-[0_4px_16px_rgba(245,158,11,0.5)] leading-tight">
           Vidyuth Krishna
         </h1>
-        <p class="text-2xl sm:text-3xl font-festive text-amber-300 font-bold mt-1 drop-shadow">
-          is turning <span class="text-yellow-300 underline decoration-amber-400 decoration-wavy text-4xl">ONE</span>!
+        <p class="text-2xl sm:text-3xl font-festive font-bold mt-1 text-[#fce7f3] drop-shadow">
+          is turning <span class="gold-text-metallic underline decoration-amber-400 decoration-wavy text-4xl font-extrabold">ONE</span>!
         </p>
       </div>
 
-      <!-- MAIN GARDEN ARTWORK CONTAINER (Using hero-art.png) -->
-      <div class="relative max-w-md mx-auto my-3 px-2">
-        <div class="relative w-full aspect-[4/3] rounded-3xl bg-gradient-to-b from-[#38bdf8] via-[#0284c7] to-[#16a34a] border-4 border-amber-300 shadow-[0_10px_35px_rgba(0,0,0,0.3)] overflow-hidden flex items-center justify-center">
-          <img src="hero-art.png" alt="Vidyuth Krishna 1st Birthday Celebration" class="w-full h-full object-cover">
+      <!-- HERO ARTWORK: FULL SCENE (invitation image 2.png) with Gold Border -->
+      <div class="relative max-w-lg mx-auto my-3 px-1">
+        <div class="relative w-full rounded-3xl overflow-hidden border-4 border-amber-300 shadow-[0_12px_42px_rgba(245,158,11,0.4)] bg-sky-950/40">
+          <img 
+            src="invitation image 2.png" 
+            alt="Baby Krishna cutting 1st Birthday cake in Vrindavan garden with calf and children"
+            class="w-full h-auto object-cover block"
+            onerror="this.onerror=null; this.src='invitation image 2_2.png';"
+          />
         </div>
       </div>
 
-      <!-- Welcome Message -->
-      <p class="max-w-md mx-auto text-[#fef9e7] text-sm sm:text-base leading-relaxed font-medium">
+      <!-- Welcome Message in Soft Champagne Silk -->
+      <p class="max-w-md mx-auto text-[#fef9e7]/90 text-sm sm:text-base leading-relaxed font-medium">
         With immense joy and gratitude, we warmly invite you and your family to join us and shower your blessings on our little prince on his milestone first birthday!
       </p>
 
-      <!-- Key Date & Time Badges -->
-      <div class="flex flex-wrap items-center justify-center gap-3 pt-2 text-[#fef9e7] font-festive">
-        <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-lg">
+      <!-- Key Date & Time Badges with Metallic Gold Accents -->
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-2 font-festive">
+        <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full champagne-glass-card shadow-lg">
           <span class="text-xl">📅</span>
-          <span class="font-bold text-sm sm:text-base text-yellow-300">Friday, 4th Dec 2026</span>
+          <span class="font-extrabold text-sm sm:text-base gold-text-metallic">Friday, 4th Dec 2026</span>
         </div>
-        <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-lg">
+        <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full champagne-glass-card shadow-lg">
           <span class="text-xl">⏰</span>
-          <span class="font-bold text-sm sm:text-base text-yellow-300">7:00 PM Onwards</span>
+          <span class="font-extrabold text-sm sm:text-base gold-text-metallic">7:00 PM Onwards</span>
         </div>
       </div>
 
@@ -248,24 +290,24 @@
       
       <div>
         <span class="text-3xl inline-block animate-float">🏰</span>
-        <h2 class="text-2xl sm:text-3xl font-festive font-extrabold gold-text-metallic drop-shadow">
+        <h2 class="text-2xl sm:text-3xl font-festive font-extrabold gold-foil-text drop-shadow">
           Venue Location
         </h2>
-        <p class="text-xs sm:text-sm text-amber-200 mt-0.5">Join us at the celebration hall</p>
+        <p class="text-xs sm:text-sm text-[#fce7f3]/90 mt-0.5">Join us at the celebration hall</p>
       </div>
 
-      <!-- Address Display Card -->
-      <div class="max-w-md mx-auto p-5 rounded-3xl bg-white/15 backdrop-blur-md border border-white/25 shadow-xl space-y-1">
-        <h3 class="font-festive font-bold text-lg sm:text-xl text-yellow-300">
+      <!-- Address Display Card with Champagne Silk Font -->
+      <div class="max-w-md mx-auto p-5 rounded-3xl champagne-glass-card space-y-1">
+        <h3 class="font-festive font-bold text-lg sm:text-xl gold-text-metallic">
           Valli Vadivelan Vizha Mandapam
         </h3>
-        <p class="text-[#fef9e7] font-medium text-xs sm:text-sm leading-relaxed">
+        <p class="text-[#fef9e7]/95 font-medium text-xs sm:text-sm leading-relaxed">
           Rayala Nagar 1st Main Road, Ramapuram, Chennai, Tamil Nadu - 600089
         </p>
       </div>
 
-      <!-- Embedded Google Map -->
-      <div class="max-w-md mx-auto h-64 sm:h-72 rounded-3xl overflow-hidden border-4 border-amber-300 shadow-2xl">
+      <!-- Embedded Google Map with 24K Gold Border -->
+      <div class="max-w-md mx-auto h-64 sm:h-72 rounded-3xl overflow-hidden border-4 border-amber-300 shadow-[0_8px_32px_rgba(245,158,11,0.35)]">
         <iframe 
           title="Google Map location for Valli Vadivelan Vizha Mandapam"
           class="w-full h-full border-0"
@@ -281,60 +323,64 @@
           href="https://www.google.com/maps/search/?api=1&query=Valli+Vadivela+Vizha+Mandapam+Ramapuram+Chennai" 
           target="_blank" 
           rel="noopener noreferrer"
-          class="px-5 py-3 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-blue-950 font-festive text-sm font-bold shadow-md hover:scale-105 active:scale-95 transition flex items-center gap-2">
+          class="px-5 py-3 rounded-full gold-metallic-bg text-blue-950 font-festive text-sm font-extrabold shadow-lg hover:scale-105 active:scale-95 transition flex items-center gap-2 border border-amber-100">
           <span>🗺️</span> Open In Google Maps
         </a>
         <button 
           id="copyAddressBtn"
-          class="px-5 py-3 rounded-full bg-white/20 border border-white/30 text-[#fef9e7] font-festive text-sm font-bold shadow-sm hover:bg-white/30 active:scale-95 transition flex items-center gap-2 cursor-pointer">
+          class="px-5 py-3 rounded-full champagne-glass-card text-[#fef9e7] font-festive text-sm font-bold shadow-sm hover:bg-white/20 active:scale-95 transition flex items-center gap-2 cursor-pointer">
           <span id="copyIcon">📋</span> <span id="copyText">Copy Address</span>
         </button>
       </div>
 
     </section>
 
-    <!-- LIVE COUNTDOWN TIMER -->
+    <!-- LIVE COUNTDOWN TIMER (Strict Target: Dec 3, 2026, 23:59:59 IST) -->
     <section class="reveal-node text-center space-y-4 pt-4">
-      <div class="flex items-center justify-center gap-2 text-yellow-300 font-festive text-sm sm:text-base font-bold drop-shadow">
+      <div class="flex items-center justify-center gap-2 font-festive text-sm sm:text-base font-bold drop-shadow">
         <span>⏰</span>
-        <span id="countdownTitle">Counting Down To Vidyuth's Birthday</span>
+        <span id="countdownTitle" class="gold-text-metallic font-extrabold">Counting Down To Vidyuth's Birthday</span>
         <span>✨</span>
       </div>
 
+      <!-- Metallic Gold Embossed Countdown Grid -->
       <div id="countdownGrid" class="grid grid-cols-4 gap-2 sm:gap-4 max-w-sm mx-auto">
-        <div class="py-3 px-1 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 shadow-xl text-center">
-          <span id="days" class="block font-festive font-extrabold text-2xl sm:text-3xl text-yellow-300 leading-none">00</span>
-          <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#fef9e7] mt-1 block">Days</span>
+        <div class="py-3 px-1 rounded-2xl champagne-glass-card text-center">
+          <span id="days" class="block font-festive font-extrabold text-2xl sm:text-3xl gold-text-metallic leading-none">00</span>
+          <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#fce7f3] mt-1 block">Days</span>
         </div>
 
-        <div class="py-3 px-1 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 shadow-xl text-center">
-          <span id="hours" class="block font-festive font-extrabold text-2xl sm:text-3xl text-yellow-300 leading-none">00</span>
-          <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#fef9e7] mt-1 block">Hours</span>
+        <div class="py-3 px-1 rounded-2xl champagne-glass-card text-center">
+          <span id="hours" class="block font-festive font-extrabold text-2xl sm:text-3xl gold-text-metallic leading-none">00</span>
+          <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#fce7f3] mt-1 block">Hours</span>
         </div>
 
-        <div class="py-3 px-1 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 shadow-xl text-center">
-          <span id="minutes" class="block font-festive font-extrabold text-2xl sm:text-3xl text-yellow-300 leading-none">00</span>
-          <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#fef9e7] mt-1 block">Mins</span>
+        <div class="py-3 px-1 rounded-2xl champagne-glass-card text-center">
+          <span id="minutes" class="block font-festive font-extrabold text-2xl sm:text-3xl gold-text-metallic leading-none">00</span>
+          <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#fce7f3] mt-1 block">Mins</span>
         </div>
 
-        <div class="py-3 px-1 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 shadow-xl text-center">
-          <span id="seconds" class="block font-festive font-extrabold text-2xl sm:text-3xl text-yellow-300 leading-none">00</span>
-          <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#fef9e7] mt-1 block">Secs</span>
+        <div class="py-3 px-1 rounded-2xl champagne-glass-card text-center">
+          <span id="seconds" class="block font-festive font-extrabold text-2xl sm:text-3xl gold-text-metallic leading-none">00</span>
+          <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#fce7f3] mt-1 block">Secs</span>
         </div>
       </div>
 
-      <div id="countdownCompleteBanner" class="hidden max-w-sm mx-auto p-4 rounded-2xl bg-gradient-to-r from-amber-400 via-pink-400 to-amber-300 text-blue-950 font-festive font-bold text-lg shadow-2xl">
+      <!-- Celebration banner if timer passes -->
+      <div id="countdownCompleteBanner" class="hidden max-w-sm mx-auto p-4 rounded-2xl gold-metallic-bg text-blue-950 border border-amber-100 font-festive font-extrabold text-lg shadow-2xl">
         🎉 Vidyuth's First Birthday Has Arrived! 🎂
       </div>
     </section>
 
-    <!-- INTERACTIVE BLESSINGS: SPRINKLE SOME BIRTHDAY JOY -->
+    <!-- INTERACTIVE JOY: SPRINKLE SOME BIRTHDAY JOY -->
     <section class="reveal-node text-center space-y-4 pt-4">
       
+      <!-- Glowing Sacred Diya Visual in Rich Antique Brass & Gold -->
       <div class="relative w-28 h-24 mx-auto flex items-center justify-center">
-        <div id="diyaAura" class="absolute inset-0 rounded-full bg-amber-400/30 blur-xl diya-glow-anim"></div>
+        <!-- Luminous Gold Glow Behind Diya -->
+        <div id="diyaAura" class="absolute inset-0 rounded-full bg-amber-400/35 blur-xl diya-glow-anim"></div>
 
-        <svg viewBox="0 0 120 100" class="w-full h-full relative z-10 filter drop-shadow-[0_4px_10px_rgba(0,0,0,0.35)]">
+        <svg viewBox="0 0 120 100" class="w-full h-full relative z-10 filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
           <defs>
             <radialGradient id="flameInner" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stop-color="#ffffff"/>
@@ -342,49 +388,55 @@
               <stop offset="70%" stop-color="#f59e0b"/>
               <stop offset="100%" stop-color="#dc2626"/>
             </radialGradient>
-            <linearGradient id="brassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#fde047"/>
-              <stop offset="45%" stop-color="#eab308"/>
-              <stop offset="85%" stop-color="#ca8a04"/>
-              <stop offset="100%" stop-color="#854d0e"/>
+            <linearGradient id="goldBrassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fef08a"/>
+              <stop offset="35%" stop-color="#f59e0b"/>
+              <stop offset="70%" stop-color="#d97706"/>
+              <stop offset="100%" stop-color="#78350f"/>
             </linearGradient>
           </defs>
 
+          <!-- Flickering Flame -->
           <g id="diyaFlameGroup" class="diya-flame-anim">
             <path d="M 60 12 C 51 26 48 38 52 48 C 55 56 65 56 68 48 C 72 38 69 26 60 12 Z" fill="url(#flameInner)"/>
             <ellipse cx="60" cy="46" rx="4" ry="7" fill="#ffffff" opacity="0.85"/>
           </g>
 
-          <path d="M 22 55 Q 60 48 98 55 Q 106 65 92 78 Q 60 88 28 78 Q 14 65 22 55 Z" fill="url(#brassGrad)"/>
-          <ellipse cx="60" cy="56" rx="36" ry="6" fill="#a16207"/>
-          <path d="M 50 78 L 70 78 L 76 88 L 44 88 Z" fill="url(#brassGrad)"/>
-          <ellipse cx="60" cy="88" rx="20" ry="4" fill="#854d0e"/>
-          <circle cx="60" cy="68" r="3" fill="#fde047"/>
-          <circle cx="46" cy="66" r="2" fill="#fde047"/>
-          <circle cx="74" cy="66" r="2" fill="#fde047"/>
+          <!-- Golden Brass Diya Body -->
+          <path d="M 22 55 Q 60 48 98 55 Q 106 65 92 78 Q 60 88 28 78 Q 14 65 22 55 Z" fill="url(#goldBrassGrad)"/>
+          <ellipse cx="60" cy="56" rx="36" ry="6" fill="#92400e"/>
+          <!-- Diya Stand Pedestal -->
+          <path d="M 50 78 L 70 78 L 76 88 L 44 88 Z" fill="url(#goldBrassGrad)"/>
+          <ellipse cx="60" cy="88" rx="20" ry="4" fill="#78350f"/>
+          <!-- Gold Ornaments -->
+          <circle cx="60" cy="68" r="3" fill="#fef08a"/>
+          <circle cx="46" cy="66" r="2" fill="#fef08a"/>
+          <circle cx="74" cy="66" r="2" fill="#fef08a"/>
         </svg>
       </div>
 
       <div class="space-y-1">
-        <h3 class="text-xl sm:text-2xl font-festive font-extrabold gold-text-metallic drop-shadow">
+        <h3 class="text-xl sm:text-2xl font-festive font-extrabold gold-foil-text drop-shadow">
           Sprinkle Some Birthday Joy
         </h3>
-        <p class="text-[#fef9e7] text-xs sm:text-sm max-w-sm mx-auto leading-relaxed">
+        <p class="text-[#fef9e7]/90 text-xs sm:text-sm max-w-sm mx-auto leading-relaxed font-medium">
           Your warm wishes light up our little Vidyuth's life with health, happiness, and peace.
         </p>
       </div>
 
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-amber-300/40 text-amber-200 text-xs sm:text-sm font-festive font-bold shadow-md">
+      <!-- Live Blessings Count Pill (Initialized at 0) -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full champagne-glass-card text-xs sm:text-sm font-festive font-bold shadow-md">
         <span>✨</span>
-        <span id="blessingCountDisplay">0</span>
-        <span>Wishes Sprinkled</span>
+        <span id="blessingCountDisplay" class="gold-text-metallic font-extrabold">0</span>
+        <span class="gold-text-metallic font-bold">Wishes Sprinkled</span>
         <span>🪷</span>
       </div>
 
+      <!-- Lotus Blossom Button -->
       <div class="pt-2">
         <button 
           id="blessingActionBtn" 
-          class="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#f472b6] via-[#ec4899] to-[#db2777] text-white border-2 border-amber-200/70 font-festive text-sm sm:text-base font-extrabold shadow-[0_6px_25px_rgba(236,72,153,0.55)] hover:shadow-[0_8px_30px_rgba(236,72,153,0.8)] hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-2.5 mx-auto">
+          class="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#f472b6] via-[#ec4899] to-[#db2777] text-white border-2 border-amber-100 font-festive text-sm sm:text-base font-extrabold shadow-[0_6px_25px_rgba(236,72,153,0.55)] hover:shadow-[0_8px_30px_rgba(236,72,153,0.8)] hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-2.5 mx-auto">
           <span class="text-lg">🌸</span>
           <span id="btnLabel">Sprinkle Some Birthday Joy</span>
           <span class="text-lg">✨</span>
@@ -392,15 +444,15 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="reveal-node text-center space-y-1.5 pt-8 border-t border-white/20">
+    <!-- CLEAN FOOTER: Dinesh & Pooja with 24K Gold Foil Signature -->
+    <footer class="reveal-node text-center space-y-1.5 pt-8 border-t border-amber-200/20">
       <div class="flex justify-center items-center gap-2 text-xl select-none">
         🪶 🪈 👶 🪷
       </div>
-      <p class="font-festive text-base text-amber-200 font-medium">
+      <p class="font-festive text-base text-[#fce7f3] font-medium">
         Invited with love by:
       </p>
-      <p class="font-festive text-2xl font-extrabold gold-text-metallic drop-shadow">
+      <p class="font-festive text-2xl font-extrabold drop-shadow gold-foil-text">
         Dinesh & Pooja
       </p>
     </footer>
@@ -408,9 +460,11 @@
   </main>
 
   <!-- ================= SCRIPTS ================= -->
+  <!-- YouTube Iframe API fallback for audio stream -->
   <script src="https://www.youtube.com/iframe_api"></script>
 
   <script>
+    // --- 1. Realistic Lotus Petal & Metallic Gold Star Physics Engine ---
     const canvas = document.getElementById('lotusCanvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
@@ -424,13 +478,13 @@
     resizeCanvas();
 
     const petalColors = ['#f472b6', '#fb7185', '#fda4af', '#f43f5e', '#fed7aa', '#fbcfe8', '#db2777', '#f43f5e'];
-    const starColors = ['#fde047', '#fbbf24', '#f59e0b', '#ffffff'];
+    const starColors = ['#fffbeb', '#fef08a', '#f59e0b', '#fbbf24', '#ffffff'];
 
     class CelebrationParticle {
       constructor(originX, originY, isBurst = false) {
         this.x = originX;
         this.y = originY;
-        this.isStar = Math.random() < 0.22;
+        this.isStar = Math.random() < 0.26; // 26% are shimmering metallic gold stars
         this.size = this.isStar ? (6 + Math.random() * 8) : (13 + Math.random() * 16);
         this.color = this.isStar 
           ? starColors[Math.floor(Math.random() * starColors.length)]
@@ -443,6 +497,7 @@
         this.isBurst = isBurst;
 
         if (isBurst) {
+          // Radial fountain explosion from center in 360 degrees
           const angleRad = Math.random() * Math.PI * 2;
           const force = 3.8 + Math.random() * 8.2;
           this.speedX = Math.cos(angleRad) * force;
@@ -450,6 +505,7 @@
           this.gravity = 0.16 + Math.random() * 0.09;
           this.drag = 0.966;
         } else {
+          // Cascading gentle fall from top of screen
           this.speedX = (Math.random() - 0.5) * 2.2;
           this.speedY = 1.6 + Math.random() * 2.6;
           this.gravity = 0;
@@ -480,6 +536,7 @@
         ctx.fillStyle = this.color;
 
         if (this.isStar) {
+          // Four-point metallic gold star sparkle
           const r = this.size;
           ctx.beginPath();
           ctx.moveTo(0, -r);
@@ -489,13 +546,15 @@
           ctx.quadraticCurveTo(0, 0, 0, -r);
           ctx.fill();
         } else {
+          // Organic curved lotus petal
           ctx.beginPath();
           ctx.moveTo(0, -this.size / 2);
           ctx.bezierCurveTo(this.size * 0.45, -this.size * 0.35, this.size * 0.55, this.size * 0.35, 0, this.size / 2);
           ctx.bezierCurveTo(-this.size * 0.55, this.size * 0.35, -this.size * 0.45, -this.size * 0.35, 0, -this.size / 2);
           ctx.fill();
 
-          ctx.strokeStyle = 'rgba(255, 255, 255, 0.45)';
+          // Delicate gold spine ridge highlight
+          ctx.strokeStyle = 'rgba(254, 240, 138, 0.55)';
           ctx.lineWidth = 1.2;
           ctx.beginPath();
           ctx.moveTo(0, -this.size * 0.4);
@@ -507,6 +566,7 @@
       }
     }
 
+    // Top Cascading Shower
     function showerFromTop(burstCount = 85) {
       for (let i = 0; i < burstCount; i++) {
         const x = Math.random() * canvas.width;
@@ -516,6 +576,7 @@
       if (!animationFrameId) animateParticles();
     }
 
+    // Center Radial Fountain Burst
     function burstFromCenter(burstCount = 100, customX, customY) {
       const originX = customX !== undefined ? customX : window.innerWidth / 2;
       const originY = customY !== undefined ? customY : window.innerHeight / 2;
@@ -546,6 +607,7 @@
       }
     }
 
+    // --- 2. Live Cloud Counter with Local Fallback (Starts strictly from 0) ---
     let blessingsCount = 0;
     const blessingCountDisplay = document.getElementById('blessingCountDisplay');
     const blessingActionBtn = document.getElementById('blessingActionBtn');
@@ -555,6 +617,7 @@
     const COUNT_NAMESPACE = 'vidyuth-krishna-1st-bday-2026';
     const COUNT_KEY = 'birthday_joy_wishes';
 
+    // Fetch initial count from online counter if available, else start at 0
     fetch(`https://api.countapi.xyz/get/${COUNT_NAMESPACE}/${COUNT_KEY}`)
       .then(res => res.json())
       .then(data => {
@@ -571,6 +634,7 @@
         blessingCountDisplay.textContent = blessingsCount;
       });
 
+    // Synthesizer chime for blessing interaction (Web Audio API)
     function playBlessingChime() {
       try {
         const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -578,7 +642,7 @@
         const audioCtx = new AudioContext();
         
         const now = audioCtx.currentTime;
-        const freqs = [523.25, 659.25, 783.99, 1046.50];
+        const freqs = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6 sweet blessing chord
         
         freqs.forEach((f, index) => {
           const osc = audioCtx.createOscillator();
@@ -596,29 +660,36 @@
           osc.start(now + index * 0.06);
           osc.stop(now + index * 0.06 + 0.95);
         });
-      } catch (err) {}
+      } catch (err) {
+        // Safe silent fallback
+      }
     }
 
     blessingActionBtn.addEventListener('click', (e) => {
+      // Glow intensity jump on Diya in Metallic Gold
       diyaAura.style.transform = 'scale(1.5)';
-      diyaAura.style.backgroundColor = 'rgba(251, 191, 36, 0.9)';
+      diyaAura.style.backgroundColor = 'rgba(245, 158, 11, 0.95)';
       setTimeout(() => {
         diyaAura.style.transform = '';
         diyaAura.style.backgroundColor = '';
       }, 700);
 
+      // Sweet chime sound
       playBlessingChime();
 
+      // Fire radial fountain of lotus petals and gold sparkles
       const rect = blessingActionBtn.getBoundingClientRect();
       const originX = rect.left + rect.width / 2;
       const originY = rect.top + rect.height / 2;
       burstFromCenter(110, originX, originY);
 
+      // Feedback text on button
       btnLabel.textContent = "Joy Sprinkled! 🌸✨";
       setTimeout(() => {
         btnLabel.textContent = "Sprinkle Some Birthday Joy";
       }, 1800);
 
+      // Increment cloud counter when hosted online, fallback to local count
       fetch(`https://api.countapi.xyz/hit/${COUNT_NAMESPACE}/${COUNT_KEY}`)
         .then(res => res.json())
         .then(data => {
@@ -635,6 +706,7 @@
         });
     });
 
+    // --- 3. Classical Music Player ---
     const localAudio = document.getElementById('attachedBgMusic');
     let ytPlayer = null;
     let isPlaying = false;
@@ -645,12 +717,18 @@
         height: '0',
         width: '0',
         videoId: 'HXZqakuTUB0',
-        playerVars: { autoplay: 0, loop: 1, playlist: 'HXZqakuTUB0', controls: 0 }
+        playerVars: {
+          autoplay: 0,
+          loop: 1,
+          playlist: 'HXZqakuTUB0',
+          controls: 0
+        }
       });
     }
 
     function startMusic() {
       if (isPlaying) return;
+
       const playPromise = localAudio.play();
       if (playPromise !== undefined) {
         playPromise.then(() => {
@@ -663,6 +741,15 @@
             isPlaying = true;
             audioSource = 'yt';
             updateMusicUI(true);
+          } else {
+            setTimeout(() => {
+              if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
+                ytPlayer.playVideo();
+                isPlaying = true;
+                audioSource = 'yt';
+                updateMusicUI(true);
+              }
+            }, 800);
           }
         });
       }
@@ -693,8 +780,6 @@
       }
     }
 
-    document.getElementById('musicToggleBtn').addEventListener('click', toggleMusic);
-
     function updateMusicUI(active) {
       const statusText = document.getElementById('musicStatusText');
       const disc = document.getElementById('discGraphic');
@@ -707,6 +792,9 @@
       }
     }
 
+    document.getElementById('musicToggleBtn').addEventListener('click', toggleMusic);
+
+    // --- 4. Tap Anywhere to Open & Spray Lotus Petals From Top ---
     const coverOverlay = document.getElementById('coverOverlay');
     let hasOpened = false;
 
@@ -714,10 +802,14 @@
       if (hasOpened) return;
       hasOpened = true;
 
+      // Start classical birthday track
       startMusic();
+
+      // Top cascading shower of lotus petals
       showerFromTop(90);
       setTimeout(() => showerFromTop(45), 350);
 
+      // Fade out cover screen
       coverOverlay.style.opacity = '0';
       coverOverlay.style.transform = 'scale(1.05)';
       setTimeout(() => {
@@ -729,8 +821,12 @@
     coverOverlay.addEventListener('click', openInvitation);
     coverOverlay.addEventListener('touchend', openInvitation);
 
+    // --- 5. Scroll Reveal Observer ---
     const revealNodes = document.querySelectorAll('.reveal-node');
-    const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -40px 0px" };
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -40px 0px"
+    };
 
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -742,6 +838,8 @@
 
     revealNodes.forEach(node => revealObserver.observe(node));
 
+    // --- 6. Countdown Strictly Ending on Dec 3, 2026 at 23:59:59 IST ---
+    // Target: 2026-12-03T23:59:59+05:30 (Indian Standard Time, UTC+5:30)
     const targetDate = new Date('2026-12-03T23:59:59+05:30').getTime();
 
     function updateCountdown() {
@@ -778,12 +876,14 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
+    // --- 7. Copy Venue Address Button ---
     const copyAddressBtn = document.getElementById('copyAddressBtn');
     const copyText = document.getElementById('copyText');
     const copyIcon = document.getElementById('copyIcon');
 
     copyAddressBtn.addEventListener('click', () => {
       const addressString = "Valli Vadivelan Vizha Mandapam, Rayala Nagar 1st Main Road, Ramapuram, Chennai, Tamil Nadu - 600089";
+      
       const tempTextArea = document.createElement('textarea');
       tempTextArea.value = addressString;
       document.body.appendChild(tempTextArea);
@@ -796,7 +896,9 @@
           copyText.textContent = "Copy Address";
           copyIcon.textContent = "📋";
         }, 2000);
-      } catch (err) {}
+      } catch (err) {
+        console.error('Copy failed:', err);
+      }
       document.body.removeChild(tempTextArea);
     });
   </script>
